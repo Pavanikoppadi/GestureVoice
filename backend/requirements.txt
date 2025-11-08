@@ -5,17 +5,15 @@ pydantic==2.10.3
 python-multipart==0.0.20
 
 # Machine Learning & Computer Vision
-tensorflow-cpu==2.12.0
-keras>=3.0.0
+tensorflow-cpu
+keras
+mediapipe==0.10.21
 
-# MediaPipe for Hand Detection
-mediapipe==0.9.1.0
-
-# OpenCV for image processing
+# OpenCV
 opencv-python==4.10.0.84
 opencv-contrib-python==4.10.0.84
 
-# Data Processing
+# Data
 numpy>=1.24.0,<2.0.0
 pandas>=2.0.0
 Pillow>=10.0.0
