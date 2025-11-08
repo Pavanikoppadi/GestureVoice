@@ -1,0 +1,22 @@
+# Next.js build
+.next/
+
+# Mac OS metadata
+__MACOSX/
+
+# Python
+__pycache__/
+
+# Node
+node_modules/
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+
+# Large ML models
+*.h5
