@@ -1,24 +1,24 @@
 # Core Web Framework
-fastapi==0.115.5
-uvicorn[standard]==0.32.1
-pydantic==2.10.3
-python-multipart==0.0.20
+fastapi
+uvicorn[standard]
+pydantic
+python-multipart
 
 # Machine Learning & Computer Vision
 tensorflow-cpu
 keras
-mediapipe==0.10.21
+mediapipe
 
 # OpenCV
-opencv-python==4.10.0.84
-opencv-contrib-python==4.10.0.84
+opencv-python
+opencv-contrib-python
 
 # Data
-numpy>=1.24.0,<2.0.0
-pandas>=2.0.0
-Pillow>=10.0.0
-h5py>=3.8.0
+numpy
+pandas
+Pillow
+h5py
 
 # Utilities
-protobuf>=4.25.3,<5.0.0
-requests>=2.31.0
+protobuf
+requests
