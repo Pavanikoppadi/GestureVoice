@@ -7,7 +7,7 @@ python-multipart
 # Machine Learning & Computer Vision
 tensorflow-cpu
 keras
-mediapipe
+mediapipe-silicon
 
 # OpenCV
 opencv-python
