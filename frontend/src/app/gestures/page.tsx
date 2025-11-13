@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import Card from '@/components/Card';
 import Link from 'next/link';
 
@@ -69,10 +70,11 @@ const GesturesPage = () => {
               <Card className="h-full overflow-hidden group">
                 {/* Image Header */}
                 <div className="relative h-48 overflow-hidden">
-                  <img
+                  <Image
                     src={gesture.image}
                     alt={gesture.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
                     <div className={`w-16 h-16 bg-gradient-to-r ${gesture.color} rounded-2xl flex items-center justify-center shadow-lg`}>

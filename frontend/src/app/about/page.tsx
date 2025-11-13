@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import Card from '@/components/Card';
 
 const AboutPage = () => {
@@ -103,11 +104,13 @@ const AboutPage = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
+              className="relative w-full h-[400px]"
             >
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
                 alt="Team collaboration"
-                className="w-full h-auto rounded-2xl shadow-lg"
+                fill
+                className="rounded-2xl shadow-lg object-cover"
               />
             </motion.div>
           </div>
@@ -166,13 +169,14 @@ const AboutPage = () => {
                 transition={{ duration: 0.6, delay: index * 0.2 }}
               >
                 <Card className="p-6 text-center overflow-hidden">
-                  <div className="relative mb-6">
-                    <img
+                  <div className="relative mb-6 w-32 h-32 mx-auto">
+                    <Image
                       src={member.image}
                       alt={member.name}
-                      className="w-32 h-32 rounded-full mx-auto object-cover"
+                      fill
+                      className="rounded-full object-cover"
                     />
-                    <div className="absolute inset-0 w-32 h-32 rounded-full mx-auto bg-gradient-to-r from-blue-500 to-blue-600 opacity-0 hover:opacity-20 transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 w-32 h-32 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 opacity-0 hover:opacity-20 transition-opacity duration-300"></div>
                   </div>
                   <h3 className="text-xl font-bold text-white mb-2">
                     {member.name}
@@ -216,11 +220,12 @@ const AboutPage = () => {
                 </p>
               </div>
               
-              <div className="relative">
-                <img
+              <div className="relative w-full h-[400px]">
+                <Image
                   src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
                   alt="Innovation and technology"
-                  className="w-full h-auto rounded-2xl shadow-lg"
+                  fill
+                  className="rounded-2xl shadow-lg object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
               </div>

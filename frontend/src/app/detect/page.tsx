@@ -65,15 +65,17 @@ const DetectPage = () => {
             }
           };
         }
-      } catch (e: any) {
+      } catch (e) {
         console.error('Camera error:', e);
-        setError(e?.message || 'Unable to access camera. Please allow camera permissions and refresh the page.');
+        const error = e as Error;
+        setError(error?.message || 'Unable to access camera. Please allow camera permissions and refresh the page.');
       }
     };
     init();
     return () => {
       active = false;
-      const stream = videoRef.current?.srcObject as MediaStream | undefined;
+      const video = videoRef.current;
+      const stream = video?.srcObject as MediaStream | undefined;
       stream?.getTracks().forEach((t) => t.stop());
       if (intervalRef.current) {
         clearInterval(intervalRef.current);
@@ -87,14 +89,15 @@ const DetectPage = () => {
     const loadInfo = async () => {
       try {
         const info = await fetchModelInfo();
-        if ((info as any).error) {
-          setError('Backend model error: ' + (info as any).error);
+        if (info.error) {
+          setError('Backend model error: ' + info.error);
           return;
         }
         const total = info.total_classes;
         setModelSummary(`Model loaded with ${total} classes. Backend connected.`);
-      } catch (e: any) {
-        const errorMsg = e?.message || 'Unknown error';
+      } catch (e) {
+        const error = e as Error;
+        const errorMsg = error?.message || 'Unknown error';
         if (errorMsg.includes('fetch') || errorMsg.includes('Failed to fetch')) {
           setError('⚠️ Backend server not running! Please start the backend server on http://localhost:8000');
         } else {
@@ -165,9 +168,10 @@ const DetectPage = () => {
           setConfidence(newConfidence);
           setCategory(newCategory);
         }
-      } catch (e: any) {
+      } catch (e) {
         if (!isMounted) return;
-        const errorMsg = e?.message || 'Prediction failed';
+        const error = e as Error;
+        const errorMsg = error?.message || 'Prediction failed';
         if (errorMsg.includes('fetch') || errorMsg.includes('NetworkError') || errorMsg.includes('Failed to fetch')) {
           setError('Backend server not reachable. Please ensure backend server is running on http://localhost:8000');
         } else {
@@ -196,7 +200,7 @@ const DetectPage = () => {
         intervalRef.current = null;
       }
     };
-  }, [isDetecting, isCameraReady]);
+  }, [isDetecting, isCameraReady, loading]);
 
   const toggleDetection = () => {
     setIsDetecting(!isDetecting);

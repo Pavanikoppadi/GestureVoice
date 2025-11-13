@@ -107,7 +107,7 @@ const Home = () => {
                 { title: 'Learn', text: 'Start with basics: alphabets and common words from our Guide.' },
                 { title: 'Practice', text: 'Use the Detect section and practice until the model recognizes it.' },
                 { title: 'Test', text: 'Challenge yourself: perform signs without the guide and get predictions.' },
-              ].map((item, i) => (
+              ].map((item) => (
                 <Card key={item.title} className="p-6 glass">
                   <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
                   <p className="text-slate-300 text-sm">{item.text}</p>

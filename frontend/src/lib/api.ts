@@ -33,9 +33,10 @@ export async function predictFromBase64Image(base64Image: string): Promise<Predi
     }
     
     return (await res.json()) as PredictResponse;
-  } catch (error: any) {
+  } catch (error) {
+    const err = error as Error;
     return { 
-      error: `Network error: ${error.message || 'Failed to connect to backend'}` 
+      error: `Network error: ${err.message || 'Failed to connect to backend'}` 
     };
   }
 }
@@ -50,8 +51,9 @@ export async function fetchModelInfo(): Promise<ModelInfoResponse> {
     }
     
     return (await res.json()) as ModelInfoResponse;
-  } catch (error: any) {
-    throw new Error(`Failed to fetch model info: ${error.message || 'Backend not reachable'}`);
+  } catch (error) {
+    const err = error as Error;
+    throw new Error(`Failed to fetch model info: ${err.message || 'Backend not reachable'}`);
   }
 }
 
